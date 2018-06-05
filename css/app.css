@@ -38,24 +38,26 @@ h1 {
  */
 
 .deck {
-    width: 660px;
-    min-height: 680px;
+    width: 80%;
+    max-width: 660px;
+    height: 90%;
+  /*   max-height: 850px; */
     background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
-    padding: 32px;
+    padding: 1%;
     border-radius: 10px;
     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
-    display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     margin: 0 0 3em;
 }
 
+
 .deck .card {
-    height: 125px;
-    width: 125px;
+    height:  125px; 
+    min-height: 80px;
     background: #2e3d49;
     font-size: 0;
+    min-width: 59px;
     color: #ffffff;
     border-radius: 8px;
     cursor: pointer;
@@ -63,6 +65,56 @@ h1 {
     justify-content: center;
     align-items: center;
     box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+    padding: 2%;   
+   margin-top: 2%;
+   margin-bottom:2%;
+    
+}
+.col-lg-3{
+    width: 24%;
+    float: left;
+    
+    padding:1%
+ }
+
+
+
+/* 
+@media  screen  and (max-width : 768px ){
+    .col-lg-3 {
+        width: 50%;
+        padding:5px;
+        max-width: 300px;
+      
+    }
+    .deck {
+        min-width: 59px;
+        width: 95%;
+     }
+    
+    
+}
+ */
+ @media screen and (max-width:450px){
+    .deck .card {
+        height: 95%; /* 125px; */
+    min-height: 80px;
+    }
+ }
+@media  screen  and (max-width : 300px ){
+    .col-lg-3 {
+        width: 45%;
+        padding:5px;
+    }
+    .deck {
+        min-width: 59px;
+      /*   width: 80%; */
+     }
+     /* .deck .card {
+        width: 45%;
+        min-width: 59px;
+     } */
+     
 }
 
 .deck .card.open {
@@ -81,24 +133,27 @@ h1 {
     font-size: 33px;
 }
 
+
+
 /*
  * Styles for the Score Panel
  */
 
 .score-panel {
     text-align: left;
-    width: 345px;
+    width:50%;
+    max-width: 345px;
     margin-bottom: 10px;
 }
-
-.score-panel .stars {
+/**.score-panel*/
+ .stars {
     margin: 0;
     padding: 0;
     display: inline-block;
     margin: 0 5px 0 0;
 }
 
-.score-panel .stars li {
+ .stars li {
     list-style: none;
     display: inline-block;
 }
@@ -109,4 +164,126 @@ h1 {
 }
 .checked{
     color:orange;
+}
+/***
+
+Modal style
+*/
+.modal {
+    display: none; /* Hidden by default */
+    position:fixed; /* Stay in place */
+    z-index:10; /* Sit on top */
+ /*    left: 20; */
+    direction: center;
+    bottom: 10;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.0); /* Black w/ opacity */
+    -webkit-animation-name: fadeIn; /* Fade in the background */
+    -webkit-animation-duration: 0.4s;
+    animation-name: fadeIn;
+    animation-duration: 0.7s
+}
+
+/* Modal Content */
+.modal-content {
+    z-index: 1000;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+    background-color: #fefefe;
+    width: 50%;
+    -webkit-animation-name: slideIn;
+    -webkit-animation-duration: 0.4s;
+    animation-name:slidIn;
+    animation-duration: 0.4s
+}
+.yesBtn{
+    background:grey;
+    border: none;
+    text-decoration: black
+}
+#refConfirm{
+width: 50px;
+height: 50px;
+color: red;
+}
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+   /*  background-color: #5cb85c; */
+   background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%); 
+   color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+    padding: 2px 16px;
+    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%); 
+    color: white;
+}
+
+
+
+
+/***
+add some animations
+*/
+@-webkit-keyframes slideDown {
+    from {bottom: 900; opacity: 0} 
+    to {bottom: 700; opacity: 1}
+}
+
+@-webkit-keyframes slideIn {
+    from {bottom: -300px; opacity: 0} 
+    to {bottom: 0; opacity: 1}
+}
+@keyframes slideDown {
+    from {bottom: 900; opacity: 0} 
+    to {bottom: 700; opacity: 1}
+}
+
+@keyframes slideIn {
+    from {bottom: -300px; opacity: 0}
+    to {bottom: 0; opacity: 1}
+}
+
+@-webkit-keyframes fadeOut {
+    from {opacity: 1} 
+    to {opacity: 0}
+}
+
+@keyframes fadeOut {
+    from {opacity: 1} 
+    to {opacity: 0}
+}
+
+
+@-webkit-keyframes fadeIn {
+    from {opacity: 0} 
+    to {opacity: 1}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0} 
+    to {opacity: 1}
 }
